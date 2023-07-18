@@ -1,0 +1,103 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  #__next {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  html {
+    @apply max-h-screen antialiased;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    @apply m-0 p-0 font-sans;
+  }
+
+  pre::-webkit-scrollbar {
+    display: none;
+  }
+
+  pre {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+
+  .capsize::before {
+    content: '';
+    margin-bottom: -0.098em;
+    display: table;
+  }
+
+  .capsize::after {
+    content: '';
+    margin-top: -0.219em;
+    display: table;
+  }
+}
+
+@layer components {
+  /* needed to override tailwind forms styles */
+  select {
+    @apply w-full px-4 py-2 border border-gray-200 rounded outline-none text-primary bg-gray-900 bg-opacity-5 hover:bg-opacity-10 focus:border-gray-900 focus:outline-none focus:ring-0 dark:border-gray-800 dark:bg-white dark:focus:border-gray-600;
+  }
+
+  button:focus,
+  a:focus {
+    @apply outline-none ring-2 ring-blue-500 ring-offset-2 ring-offset-white dark:ring-blue-500 dark:ring-offset-black;
+  }
+
+  button:active:not(:focus-visible),
+  a:active:not(:focus-visible),
+  button:focus:not(:focus-visible),
+  a:focus:not(:focus-visible) {
+    @apply outline-none ring-0 ring-offset-0;
+  }
+
+  input[type='text'],
+  textarea {
+    @apply bg-white border border-gray-200 outline-none dark:border-gray-700 dark:bg-gray-800;
+  }
+
+  input[type='checkbox'] {
+    @apply dark:border-gray-600 dark:bg-gray-700;
+  }
+
+  input:focus,
+  textarea:focus {
+    @apply outline-none ring-2 ring-blue-500 ring-offset-2 ring-offset-white dark:ring-offset-black;
+  }
+
+  .font-list-heading {
+    @apply font-sans text-lg font-bold text-primary;
+  }
+
+  .tabbed-navigation::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Your own custom utilities */
+@layer utilities {
+  .text-primary {
+    @apply text-black dark:text-white;
+  }
+
+  .text-secondary {
+    @apply text-black/80 dark:text-white/80;
+  }
+
+  .text-tertiary {
+    @apply text-black/60 dark:text-white/60;
+  }
+
+  .text-quaternary {
+    @apply text-black/40 dark:text-white/40;
+  }
+}
