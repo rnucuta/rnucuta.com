@@ -13,6 +13,7 @@
 
   body {
     @apply m-0 p-0 font-sans;
+    background-color: '#e0e0e0';
   }
 
   pre::-webkit-scrollbar {
@@ -55,19 +56,19 @@
 
 @layer utilities {
   .text-primary {
-    @apply text-black dark:text-white;
+    @apply text-black dark:text-black;
   }
 
   .text-secondary {
-    @apply text-black/80 dark:text-white/80;
+    @apply text-black/80 dark:text-black/80;
   }
 
   .text-tertiary {
-    @apply text-black/60 dark:text-white/60;
+    @apply text-black/60 dark:text-black/60;
   }
 
   .text-quaternary {
-    @apply text-black/40 dark:text-white/40;
+    @apply text-black/40 dark:text-black/40;
   }
 
   .flip-card {

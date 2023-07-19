@@ -1,49 +1,55 @@
+import Juice from '@/ui/Juice'
+import Spinner from '@/ui/Spinner'
+import { Suspense } from 'react'
+
 export default function Home() {
   return (
-    <div className='flex flex-col gap-16'>
-      <Header />
-      <Contact />
-      <About />
-    </div>
-  );
+    <Suspense fallback={<Spinner />}>
+      <div className='flex flex-col gap-16'>
+        <Header />
+        <Juice />
+        <About />
+        <Contact />
+      </div>
+    </Suspense>
+  )
 }
 
 function Header() {
   return (
-    <div className='flex flex-row items-center gap-4'>
+    <div className='flex flex-row gap-4 h-screen' style={{ zIndex: 3 }}>
       <div className='flex flex-col'>
-        <h1>Typescript - Tailwind - Next.js</h1>
-        <p className='text-quaternary'>
-          An opinionated template to get you going.
-        </p>
+        <h1 className='text-primary'>highskore</h1>
+        <p className='text-quaternary'>smart contract developer</p>
       </div>
     </div>
-  );
+  )
 }
 
 function About() {
   return (
-    <div className='flex flex-col gap-4'>
+    <div className='flex flex-col gap-4' style={{ zIndex: 3 }}>
       <div className='text-secondary flex flex-col gap-4'>
-        <p className='font-bold'>Edit /app/page.tsx to get started ☄️.</p>
+        <p className='font-bold'>/me</p>
         <p>
-          Folder structure, UI components, Framer Motion, Tailwind Config. Uses
-          Next.js 13 with appDir and server components. Customized base styling,
-          capsize and more. SEO optimized.
+          a software developer with a background in computer science and a
+          foreground in aesthetics
         </p>
       </div>
     </div>
-  );
+  )
 }
 
 function ContactLink({
   href,
   title,
+  icon,
   website,
   email,
 }: {
   email?: string
   href?: string
+  icon?: any
   title: string
   website?: string
 }) {
@@ -58,20 +64,24 @@ function ContactLink({
           target='_blank'
         >
           {title}{' '}
-          <svg
-            className=' inline-block h-3 w-3'
-            fill='none'
-            stroke='currentColor'
-            strokeWidth={1.5}
-            viewBox='0 0 24 24'
-            xmlns='http://www.w3.org/2000/svg'
-          >
-            <path
-              d='M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25'
-              strokeLinecap='round'
-              strokeLinejoin='round'
-            />
-          </svg>
+          {icon ? (
+            icon
+          ) : (
+            <svg
+              className=' inline-block h-3 w-3'
+              fill='none'
+              stroke='currentColor'
+              strokeWidth={1.5}
+              viewBox='0 0 24 24'
+              xmlns='http://www.w3.org/2000/svg'
+            >
+              <path
+                d='M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25'
+                strokeLinecap='round'
+                strokeLinejoin='round'
+              />
+            </svg>
+          )}
         </a>
       )}
       {email && (
@@ -80,20 +90,44 @@ function ContactLink({
         </p>
       )}
     </span>
-  );
+  )
 }
 
 function Contact() {
   return (
-    <div className='flex flex-col gap-4'>
+    <div className='flex flex-col gap-4 pb-8' style={{ zIndex: 3 }}>
       <div className='grid grid-cols-2 gap-2 md:grid-cols-3'>
         <ContactLink
-          href='https://github.com/cristicretu/ts-next-tailwind-template'
-          title='ts-next-tw-template'
+          href='http://twitter.com/0xhighskore'
+          title='0xhighskore'
+          website='Twitter'
+        />
+        <ContactLink
+          href='http://github.com/highskore'
+          title='highskore'
           website='GitHub'
         />
-        <ContactLink href='https://cretu.dev' title='cretu' website='Author' />
+        <ContactLink
+          href='http://medium.com/@lu_ka_ra_ch_ki'
+          title='lu_ka_ra_ch_ki'
+          website='Medium'
+        />
+        <ContactLink
+          href='mailto:dev@highskore.com'
+          title='hi@highskore.com'
+          website='Email'
+        />
+        <ContactLink
+          href='https://read.cv/highskore'
+          title='highskore'
+          website='CV'
+        />
+        <ContactLink
+          href='https://sikboi.tumblr.com'
+          title='sikboi'
+          website='Tumblr'
+        />
       </div>
     </div>
-  );
+  )
 }

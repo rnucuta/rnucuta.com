@@ -39,12 +39,14 @@ module.exports = {
   rules: {
     '@typescript-eslint/ban-ts-comment': 0,
     '@typescript-eslint/no-empty-function': 0,
+    '@typescript-eslint/no-explicit-any': 'off',
+    '@typescript-eslint/no-extra-semi': 'off',
     '@typescript-eslint/no-namespace': 0,
     '@typescript-eslint/no-non-null-assertion': 0,
     '@typescript-eslint/no-unused-vars': ['error'],
     '@typescript-eslint/no-var-requires': 0,
     'array-bracket-spacing': [2, 'never'],
-    'arrow-parens': [2, 'always'],
+    'arrow-parens': 'off', // Handled by 'prettier
     'arrow-spacing': 2,
     'brace-style': [
       2,
@@ -63,8 +65,10 @@ module.exports = {
     'import/order': 0,
     'no-console': 0,
     'no-const-assign': 2,
+    'no-explicit-any': 0,
     'no-extra-parens': [2, 'functions'],
-    'no-irregular-whitespace': 2,
+    'no-extra-semi': 0,
+    'no-irregular-blackspace': 'off',
     'no-this-before-super': 2,
     'no-unused-expressions': 2,
     'no-unused-labels': 1,
@@ -78,7 +82,6 @@ module.exports = {
     'react/jsx-sort-props': 2,
     'react/prop-types': 0,
     'react/react-in-jsx-scope': 0,
-    semi: [2, 'always'],
     'sort-keys-fix/sort-keys-fix': 2,
     'space-before-blocks': 2,
     'space-before-function-paren': [

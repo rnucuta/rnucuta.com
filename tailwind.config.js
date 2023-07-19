@@ -1,26 +1,27 @@
-const colors = require('tailwindcss/colors')
-
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  mode: 'jit',
   content: [
     './pages/**/*.{js,ts,jsx,tsx}',
     './components/**/*.{js,ts,jsx,tsx}',
     './app/**/*.{js,ts,jsx,tsx}',
+    './ui/**/*.{js,ts,jsx,tsx}',
   ],
-  darkMode: 'class',
   future: {
     hoverOnlyWhenSupported: true,
   },
+  mode: 'jit',
+  plugins: [],
   theme: {
     extend: {
+      backgroundColor: {
+        default: '#e0e0e0',
+      },
       colors: {
-        gray: colors.neutral,
+        'light-gray': '#e0e0e0',
       },
     },
   },
   variants: {
     extend: {},
   },
-  plugins: [],
 }

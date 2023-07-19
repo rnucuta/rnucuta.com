@@ -1,18 +1,17 @@
-import Footer from '../ui/Footer';
-import './globals.css';
-import Providers from './providers';
-import { cn } from '@/lib/className';
-import AnimateEnter from '@/ui/AnimateEnter';
-import { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import './globals.css'
+import Providers from './providers'
+import { cn } from '@/lib/className'
+import AnimateEnter from '@/ui/AnimateEnter'
+import { Metadata } from 'next'
+import { Inter } from 'next/font/google'
 
-const inter = Inter({ subsets: ['latin'] });
+const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  authors: [{ name: 'Cristian Crețu', url: 'https://cretu.dev' }],
-  category: 'design',
-  creator: 'Cristian Crețu',
-  description: 'Design Engineer.',
+  authors: [{ name: 'highskore', url: 'https://highskore.com' }],
+  category: 'blockchain',
+  creator: 'highskore',
+  description: 'a smart contract developer portfolio',
   icons: {
     apple: '/static/favicons/apple-touch-icon-180x180.png',
     icon: '/static/favicons/favicon-196x196.png',
@@ -23,30 +22,32 @@ export const metadata: Metadata = {
     'React',
     'JavaScript',
     'TypeScript',
-    'TailwindCSS',
+    'Solidity',
+    'Web3',
+    'Ethereum',
+    'Blockchain',
     'Design',
     'Engineering',
-    'Frontend',
     'Developer',
   ],
   manifest: '/static/favicons/site.webmanifest',
   openGraph: {
-    description: 'Design Engineer.',
+    description: 'a smart contract developer portfolio',
     images: [
       {
-        alt: 'Cristian Crețu',
+        alt: 'highskore',
         height: 1080,
-        url: 'https://cretu.dev/static/images/og.png',
+        url: 'https://highskore.com/static/images/og.png',
         width: 1920,
       },
     ],
     locale: 'en-US',
-    siteName: 'Cristian Crețu',
-    title: 'Cristian Crețu',
+    siteName: 'highskore',
+    title: 'highskore',
     type: 'website',
-    url: 'https://cretu.dev',
+    url: 'https://highskore.com',
   },
-  publisher: 'Cristian Crețu',
+  publisher: 'highskore',
   robots: {
     follow: true,
     googleBot: {
@@ -58,23 +59,16 @@ export const metadata: Metadata = {
     },
     index: true,
   },
-  themeColor: [
-    { color: 'white', media: '(prefers-color-scheme: light)' },
-    { color: '#171717', media: '(prefers-color-scheme: dark)' },
-  ],
   title: {
-    default: 'Cristian Crețu',
-    template: '%s | Cristian Crețu',
+    default: 'highskore',
+    template: '%s | highskore',
   },
   twitter: {
     card: 'summary_large_image',
-    site: '@cristicrtu',
-    title: 'Cristian Crețu',
+    site: '@0xhighskore',
+    title: 'highskore',
   },
-  verification: {
-    google: 'fK4YqLAHjoaynXLF1e5gaPzDNOircgiYSgAwSXqr61o',
-  },
-};
+}
 
 export default function RootLayout({
   children,
@@ -86,21 +80,17 @@ export default function RootLayout({
       <body
         className={cn(
           `${inter.className}`,
-          'h-full, min-h-screen, relative w-full max-w-2xl mx-auto px-4',
-          'my-4 bg-white dark:bg-gray-900 sm:my-24',
+          'h-full, min-h-screen, relative w-full',
+          'mb-4 pt-4 bg-light-gray sm:mb-24 sm:pt-28',
           'motion-reduce:transform-none motion-reduce:transition-none'
         )}
       >
         <Providers>
-          <nav className='fixed bottom-4 left-2 z-50 sm:left-4 md:left-6'></nav>
           <AnimateEnter>
-            <>
-              {children}
-              <Footer />
-            </>
+            <>{children}</>
           </AnimateEnter>
         </Providers>
       </body>
     </html>
-  );
+  )
 }
