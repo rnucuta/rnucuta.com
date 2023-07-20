@@ -92,7 +92,7 @@ function Content() {
   const [scrolling, setScrolling] = useState(false)
 
   useFrame(() => {
-    const lerpFactor = isMobile ? 0.8 : 0.1 // adjust this value for speed; closer to 1 is faster
+    const lerpFactor = isMobile ? 0.1 : 0.2 // adjust this value for speed; closer to 1 is faster
     const diff = (targetScrollY.current - scrollY.current) * lerpFactor
 
     camera.position.y += diff * (isMobile ? 0.02 : 0.05)
@@ -116,7 +116,7 @@ function Content() {
     // Assuming the user stops scrolling after 150ms. Adjust this value as needed.
     scrollEndTimeoutRef.current = window.setTimeout(() => {
       setScrolling(false)
-    }, 550)
+    }, 10)
   }
 
   useEffect(() => {
@@ -138,12 +138,12 @@ function Content() {
         position={[0, 8, -10 + (isMobile ? 2 : 0)]}
       />
 
-      <Float>
+      <Float enabled={isMobile ? !scrolling : true}>
         <Sphere
           position={[
             0,
             8 + (isMobile ? 1.2 : 0),
-            0 - sizeMultiplier * 1.2 + (isMobile ? -1 : 0),
+            0 - sizeMultiplier * 1.2 + (isMobile ? 2 : 0),
           ]}
           size={(fontSize / 1.1) * (isMobile ? 1.2 : 1)}
         />
@@ -213,16 +213,6 @@ export default function Juice() {
             position={[-50, 2, 0]}
             scale={[100, 2, 1]}
           />
-          <Float speed={5} floatIntensity={2} rotationIntensity={2}>
-            <Lightformer
-              form='ring'
-              color='red'
-              intensity={1}
-              scale={10}
-              position={[-15, 4, -18]}
-              target={[0, 0, 0]}
-            />
-          </Float>
         </Environment>
         <EffectComposer disableNormalPass enabled={!degraded}>
           <N8AO aoRadius={3} intensity={1} />
