@@ -7,10 +7,8 @@ import {
   Html,
   Environment,
   MeshTransmissionMaterial,
-  Shadow,
-  Cloud,
-  Sparkles,
   useDetectGPU,
+  PerformanceMonitor,
 } from '@react-three/drei'
 import { Canvas, useFrame, useThree } from '@react-three/fiber'
 import { EffectComposer, N8AO, TiltShift2 } from '@react-three/postprocessing'
@@ -94,7 +92,7 @@ function Content() {
   const [scrolling, setScrolling] = useState(false)
 
   useFrame(() => {
-    const lerpFactor = isMobile ? 0.8 : 0.2 // adjust this value for speed; closer to 1 is faster
+    const lerpFactor = isMobile ? 0.8 : 0.1 // adjust this value for speed; closer to 1 is faster
     const diff = (targetScrollY.current - scrollY.current) * lerpFactor
 
     camera.position.y += diff * (isMobile ? 0.02 : 0.05)
@@ -140,7 +138,7 @@ function Content() {
         position={[0, 8, -10 + (isMobile ? 2 : 0)]}
       />
 
-      <Float enabled={isMobile ? !scrolling : true}>
+      <Float>
         <Sphere
           position={[
             0,
@@ -189,6 +187,7 @@ function Striplight(props: any) {
 
 export default function Juice() {
   const GPUTier = useDetectGPU()
+  const [degraded, degrade] = useState(false)
   if (GPUTier.tier === 0) return <Fallback />
   return (
     <>
@@ -206,18 +205,29 @@ export default function Juice() {
       >
         <color args={['#e0e0e0']} attach='background' />
         <Content />
-        <Environment resolution={64}>
+        <PerformanceMonitor onDecline={() => degrade(true)} />
+        <Environment resolution={64} frames={degraded ? 1 : Infinity}>
           <Lightformer
             intensity={2}
             rotation-y={Math.PI / 2}
             position={[-50, 2, 0]}
             scale={[100, 2, 1]}
           />
+          <Float speed={5} floatIntensity={2} rotationIntensity={2}>
+            <Lightformer
+              form='ring'
+              color='red'
+              intensity={1}
+              scale={10}
+              position={[-15, 4, -18]}
+              target={[0, 0, 0]}
+            />
+          </Float>
         </Environment>
-        {/* <EffectComposer disableNormalPass>
+        <EffectComposer disableNormalPass enabled={!degraded}>
           <N8AO aoRadius={3} intensity={1} />
-          <TiltShift2 blur={0.01} />
-        </EffectComposer> */}
+          <TiltShift2 blur={0.05} />
+        </EffectComposer>
       </Canvas>
     </>
   )
