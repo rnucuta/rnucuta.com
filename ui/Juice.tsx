@@ -63,7 +63,13 @@ function Title(props: any) {
     <>
       <Text color='black' font={inter} {...props}>
         {asciiText}
-        <Html style={{ color: 'transparent', fontSize: '33.5em' }} transform>
+        <Html
+          style={{
+            color: 'transparent',
+            fontSize: (props.fontSize * 2.4).toString().concat('em'),
+          }}
+          transform
+        >
           {asciiText}
         </Html>
       </Text>
