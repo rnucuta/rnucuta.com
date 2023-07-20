@@ -92,7 +92,7 @@ function Content() {
   const [scrolling, setScrolling] = useState(false)
 
   useFrame(() => {
-    const lerpFactor = isMobile ? 0.1 : 0.2 // adjust this value for speed; closer to 1 is faster
+    const lerpFactor = 0.2 // adjust this value for speed; closer to 1 is faster
     const diff = (targetScrollY.current - scrollY.current) * lerpFactor
 
     camera.position.y += diff * (isMobile ? 0.02 : 0.05)
