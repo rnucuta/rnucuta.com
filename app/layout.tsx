@@ -1,7 +1,6 @@
 import './globals.css'
 import Providers from './providers'
 import { cn } from '@/lib/className'
-import AnimateEnter from '@/ui/AnimateEnter'
 import { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 

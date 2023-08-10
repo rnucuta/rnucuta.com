@@ -1,8 +1,7 @@
 'use client'
-import AnimateEnter from '@/ui/AnimateEnter'
 import Juice from '@/ui/Juice'
 import Spinner from '@/ui/Spinner'
-import { Suspense, useCallback, useState } from 'react'
+import { useCallback, useState } from 'react'
 
 export default function Home() {
   const [isJuiceLoaded, setIsJuiceLoaded] = useState(false)
