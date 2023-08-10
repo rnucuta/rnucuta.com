@@ -137,7 +137,6 @@ function Content() {
         fontSize={fontSize * (isMobile ? 1.3 : 1)}
         position={[0, 8, -10 + (isMobile ? 2 : 0)]}
       />
-
       <Float enabled={isMobile ? !scrolling : true}>
         <Sphere
           position={[
@@ -185,10 +184,15 @@ function Striplight(props: any) {
   )
 }
 
-export default function Juice() {
+export default function Juice({ onLoaded }: { onLoaded: () => void }) {
   const GPUTier = useDetectGPU()
   const [degraded, degrade] = useState(false)
-  if (GPUTier.tier === 0) return <Fallback />
+  useEffect(() => {
+    // Assume that once the component has mounted, it's considered "loaded"
+    onLoaded()
+  }, [onLoaded])
+  if (GPUTier.isMobile && GPUTier.tier === 0) return <Fallback />
+
   return (
     <>
       <Canvas

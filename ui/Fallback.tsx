@@ -14,7 +14,7 @@ export default function Fallback(params: any) {
         <p>
           + this is a fallback title, it looks like your device can't handle a
           lot of 3D objects inside the browser really well, try using another
-          device if you're really curious 🤖
+          device if you're really curious
         </p>
       </div>
     </div>

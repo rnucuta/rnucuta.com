@@ -1,17 +1,32 @@
+'use client'
+import AnimateEnter from '@/ui/AnimateEnter'
 import Juice from '@/ui/Juice'
 import Spinner from '@/ui/Spinner'
-import { Suspense } from 'react'
+import { Suspense, useCallback, useState } from 'react'
 
 export default function Home() {
+  const [isJuiceLoaded, setIsJuiceLoaded] = useState(false)
+
+  const handleJuiceLoaded = useCallback(() => {
+    setTimeout(() => {
+      setIsJuiceLoaded(true)
+    }, 200)
+  }, [])
+
+  console.log(isJuiceLoaded)
   return (
-    <Suspense fallback={<Spinner />}>
-      <div className='flex flex-col gap-16'>
-        <Header />
-        <Juice />
-        <About />
-        <Contact />
-      </div>
-    </Suspense>
+    <div className='flex flex-col gap-16'>
+      <Juice onLoaded={handleJuiceLoaded} />
+      {isJuiceLoaded ? (
+        <>
+          <Header />
+          <About />
+          <Contact />
+        </>
+      ) : (
+        <Spinner />
+      )}
+    </div>
   )
 }
 

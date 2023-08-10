@@ -86,9 +86,9 @@ export default function RootLayout({
         )}
       >
         <Providers>
-          <AnimateEnter>
+          <div className='mx-auto max-w-2xl px-4 sm:px-8'>
             <>{children}</>
-          </AnimateEnter>
+          </div>
         </Providers>
       </body>
     </html>
