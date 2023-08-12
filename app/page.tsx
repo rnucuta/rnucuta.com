@@ -12,7 +12,6 @@ export default function Home() {
     }, 200)
   }, [])
 
-  console.log(isJuiceLoaded)
   return (
     <div className='flex flex-col gap-16'>
       <Juice onLoaded={handleJuiceLoaded} />
