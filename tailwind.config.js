@@ -14,10 +14,10 @@ module.exports = {
   theme: {
     extend: {
       backgroundColor: {
-        default: '#e0e0e0',
+        default: '#1f1f1f',
       },
       colors: {
-        'light-gray': '#e0e0e0',
+        'light-gray': '#1f1f1f',
       },
     },
   },

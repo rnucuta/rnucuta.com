@@ -1,5 +1,6 @@
 'use client'
 
+import Fallback from './Fallback'
 import {
   Float,
   Lightformer,
@@ -15,7 +16,6 @@ import { EffectComposer, N8AO, TiltShift2 } from '@react-three/postprocessing'
 import { Inter } from 'next/font/google'
 import { useEffect, useRef, useState } from 'react'
 import { useWindowSize } from 'react-use'
-import Fallback from './Fallback'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -55,11 +55,11 @@ const Octahedron = (props: any) => (
 )
 
 function Title(props: any) {
-  const asciiText = 'HIGHSKORE'
+  const asciiText = 'RNUCUTA'
 
   return (
     <>
-      <Text color='black' font={inter} {...props}>
+      <Text color='white' font={inter} {...props}>
         {asciiText}
         <Html
           style={{
@@ -207,14 +207,17 @@ export default function Juice({ onLoaded }: { onLoaded: () => void }) {
           zIndex: 0,
         }}
       >
-        <color args={['#e0e0e0']} attach='background' />
+        <color args={['#1f1f1f']} attach='background' />
         <Content />
         <PerformanceMonitor onDecline={() => degrade(true)} />
-        <Environment resolution={64} frames={degraded ? 1 : Infinity}>
+        <Environment
+          frames={degraded ? 1 : Number.POSITIVE_INFINITY}
+          resolution={64}
+        >
           <Lightformer
             intensity={2}
-            rotation-y={Math.PI / 2}
             position={[-50, 2, 0]}
+            rotation-y={Math.PI / 2}
             scale={[100, 2, 1]}
           />
         </Environment>

@@ -1,4 +1,5 @@
 'use client'
+
 import Juice from '@/ui/Juice'
 import Spinner from '@/ui/Spinner'
 import { useCallback, useState } from 'react'
@@ -32,8 +33,8 @@ function Header() {
   return (
     <div className='flex flex-row gap-4 h-screen' style={{ zIndex: 3 }}>
       <div className='flex flex-col'>
-        <h1 className='text-primary'>highskore</h1>
-        <p className='text-quaternary'>smart contract developer</p>
+        <h1 className='text-primary'>rnucuta</h1>
+        <p className='text-quaternary'>machine learning engineer</p>
       </div>
     </div>
   )
@@ -45,8 +46,8 @@ function About() {
       <div className='text-secondary flex flex-col gap-4'>
         <p className='font-bold'>/me</p>
         <p>
-          a software developer with a background in computer science and a
-          foreground in aesthetics
+          a software developer with a background in computer science and a focus
+          in machine learning
         </p>
       </div>
     </div>
@@ -111,34 +112,24 @@ function Contact() {
     <div className='flex flex-col gap-4 pb-8' style={{ zIndex: 3 }}>
       <div className='grid grid-cols-2 gap-2 md:grid-cols-3'>
         <ContactLink
-          href='http://twitter.com/0xhighskore'
-          title='0xhighskore'
-          website='Twitter'
-        />
-        <ContactLink
-          href='http://github.com/highskore'
-          title='highskore'
+          href='http://github.com/rnucuta'
+          title='rnucuta'
           website='GitHub'
         />
         <ContactLink
-          href='http://medium.com/@lu_ka_ra_ch_ki'
-          title='lu_ka_ra_ch_ki'
-          website='Medium'
-        />
-        <ContactLink
-          href='mailto:dev@highskore.com'
-          title='hi@highskore.com'
+          href='mailto:rnucuta@asu.edu'
+          title='rnucuta@asu.edu'
           website='Email'
         />
         <ContactLink
-          href='https://read.cv/highskore'
-          title='highskore'
-          website='CV'
+          href='https://www.overleaf.com/read/zdcvkpwktdvk'
+          title='Raymond Nucuta'
+          website='Resume'
         />
         <ContactLink
-          href='https://sikboi.tumblr.com'
-          title='sikboi'
-          website='Tumblr'
+          href='http://medium.com/@rnucuta'
+          title='rnucuta'
+          website='Medium'
         />
       </div>
     </div>

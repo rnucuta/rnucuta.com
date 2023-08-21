@@ -7,10 +7,10 @@ import { Inter } from 'next/font/google'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  authors: [{ name: 'highskore', url: 'https://highskore.com' }],
-  category: 'blockchain',
-  creator: 'highskore',
-  description: 'a smart contract developer portfolio',
+  authors: [{ name: 'rnucuta', url: 'https://rnucuta.com' }],
+  category: 'software',
+  creator: 'rnucuta',
+  description: 'a software developer portfolio',
   icons: {
     apple: '/static/favicons/apple-touch-icon-180x180.png',
     icon: '/static/favicons/favicon-196x196.png',
@@ -28,25 +28,27 @@ export const metadata: Metadata = {
     'Design',
     'Engineering',
     'Developer',
+    'Cloud',
+    'Machine Learning',
   ],
   manifest: '/static/favicons/site.webmanifest',
   openGraph: {
-    description: 'a smart contract developer portfolio',
+    description: 'a software developer portfolio',
     images: [
       {
-        alt: 'highskore',
+        alt: 'rnucuta',
         height: 1080,
-        url: 'https://highskore.com/static/images/og.png',
+        url: 'https://rnucuta.com/static/images/og.png',
         width: 1920,
       },
     ],
     locale: 'en-US',
-    siteName: 'highskore',
-    title: 'highskore',
+    siteName: 'rnucuta',
+    title: 'rnucuta',
     type: 'website',
-    url: 'https://highskore.com',
+    url: 'https://rnucuta.com',
   },
-  publisher: 'highskore',
+  publisher: 'rnucuta',
   robots: {
     follow: true,
     googleBot: {
@@ -59,13 +61,8 @@ export const metadata: Metadata = {
     index: true,
   },
   title: {
-    default: 'highskore',
-    template: '%s | highskore',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    site: '@0xhighskore',
-    title: 'highskore',
+    default: 'rnucuta',
+    template: '%s | rnucuta',
   },
 }
 
