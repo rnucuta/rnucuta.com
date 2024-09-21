@@ -34,7 +34,7 @@ function Header() {
     <div className='flex flex-row gap-4 h-screen' style={{ zIndex: 3 }}>
       <div className='flex flex-col'>
         <h1 className='text-primary'>rnucuta</h1>
-        <p className='text-quaternary'>machine learning engineer</p>
+        <p className='text-quaternary'>aspiring machine learning engineer</p>
       </div>
     </div>
   )
@@ -46,8 +46,8 @@ function About() {
       <div className='text-secondary flex flex-col gap-4'>
         <p className='font-bold'>/me</p>
         <p>
-          a software developer with a background in computer science and a focus
-          in machine learning
+          new grad software developer with a background in embedded systems and an
+          excitement for solving problems in natural language processing
         </p>
       </div>
     </div>
@@ -117,19 +117,24 @@ function Contact() {
           website='GitHub'
         />
         <ContactLink
-          href='mailto:rnucuta@asu.edu'
-          title='rnucuta@asu.edu'
+          href='mailto:rn347@cornell.edu'
+          title='rn347@cornell.edu'
           website='Email'
         />
         <ContactLink
-          href='https://www.overleaf.com/read/zdcvkpwktdvk'
-          title='Raymond Nucuta'
+          href='https://docs.google.com/document/d/1Qby_DEb3RklCW15k3Ojds00HiDxT6iUe9AmliCYDNk4/edit?usp=sharing'
+          title='Link'
           website='Resume'
         />
         <ContactLink
           href='http://medium.com/@rnucuta'
           title='rnucuta'
           website='Medium'
+        />
+        <ContactLink
+          href='https://www.linkedin.com/in/raymond-nucuta/'
+          title='Raymond Nucuta'
+          website='LinkedIn'
         />
       </div>
     </div>
